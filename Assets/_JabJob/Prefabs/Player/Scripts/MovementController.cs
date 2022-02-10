@@ -75,13 +75,13 @@ namespace _JabJob.Prefabs.Player.Scripts
 		{
 			if (ReferenceEquals(InputController.Instance, null) || ReferenceEquals(playerBodyTransform, null)) return;
 			
-			Vector3 localEulerRotation = playerBodyTransform.localRotation.eulerAngles;
+			Vector3 localEulerRotation = playerTransform.localRotation.eulerAngles;
 			
 			float rotationSpeed = InputController.Instance.InputType == InputType.Gamepad
 				? gamepadRotationSpeed
 				: mouseRotationSpeed;
 			
-			playerBodyTransform.localRotation = Quaternion.Euler(new Vector3(
+			playerTransform.localRotation = Quaternion.Euler(new Vector3(
 				localEulerRotation.x,
 				localEulerRotation.y
 				+ InputController.Instance.RotateInputValue.x
@@ -98,11 +98,17 @@ namespace _JabJob.Prefabs.Player.Scripts
 		{
 			Vector3 direction = Quaternion.Euler(
 				_cameraRotationX + 90,
-				playerBodyTransform.localRotation.eulerAngles.y,
+				playerTransform.localRotation.eulerAngles.y,
 				0
 			) * Vector3.back;
 			
 			return new Ray(cameraHolder.position, direction);
+		}
+
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawRay(GetViewRay());
 		}
 	}
 }
