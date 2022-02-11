@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class NavMesh_target_player : MonoBehaviour
 {
-
     public Transform player;
     void Update()
     {
