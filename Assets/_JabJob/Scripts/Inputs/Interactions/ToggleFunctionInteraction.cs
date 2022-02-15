@@ -16,8 +16,6 @@ namespace _JabJob.Scripts.Inputs.Interactions
 
 			if (isPressed)
 				return false;
-			
-			Debug.Log("hello");
 
 			OnInteract?.Invoke();
 

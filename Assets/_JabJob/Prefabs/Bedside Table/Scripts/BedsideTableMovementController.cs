@@ -8,7 +8,8 @@ namespace _JabJob.Prefabs.Bedside_Table.Scripts
     {
         public bool IsOpen = false;
 
-        public Transform drawerTransform;
+        public Transform drawerParentTransform;
+        public Rigidbody drawerRigidbody;
         
         [Header("Properties")]
         public float openingDuration = 2f;
@@ -25,12 +26,12 @@ namespace _JabJob.Prefabs.Bedside_Table.Scripts
 
             float easedT = Easings.Interpolate(t, easingFunction);
 
-            Vector3 drawerTransformLocalPosition = drawerTransform.localPosition;
-            drawerTransform.localPosition = new Vector3(
+            drawerRigidbody.MovePosition(drawerParentTransform.position + drawerParentTransform.rotation * new Vector3(
                 Mathf.Lerp(-0.008749432f, -0.22f, easedT),
-                drawerTransformLocalPosition.y,
-                drawerTransformLocalPosition.z
-            );
+                0,
+                0
+            ));
+            drawerRigidbody.MoveRotation(drawerParentTransform.rotation * Quaternion.Euler(-90, 0, 0));
         }
         
         public void ToggleOpening()

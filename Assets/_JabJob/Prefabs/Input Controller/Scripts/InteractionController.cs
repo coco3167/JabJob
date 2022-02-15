@@ -30,7 +30,7 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 				if (!Physics.Raycast(MovementController.Instance.GetViewRay(), out RaycastHit raycastHit, interactionDistance))
 					return;
 				
-				interaction = raycastHit.transform.GetComponent<Interaction>();
+				interaction = raycastHit.collider.transform.GetComponent<Interaction>();
 
 				if (ReferenceEquals(interaction, null))
 					return;
