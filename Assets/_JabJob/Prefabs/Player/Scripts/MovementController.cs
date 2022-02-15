@@ -23,6 +23,10 @@ namespace _JabJob.Prefabs.Player.Scripts
 		public float gamepadRotationSpeed = 150f;
 		public float mouseRotationSpeed = 25f;
 		
+		[Header("Throw Properties")]
+		public float throwForce = 5f;
+		public float throwDuration = 1.5f;
+		
 		private CharacterController _characterController;
 		private float _cameraRotationX = 90f;
 		private float _verticalVelocity = 0f;
