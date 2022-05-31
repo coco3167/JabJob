@@ -5029,6 +5029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99457d36a15ca9042856e3a77863e572, type: 3}
+<<<<<<< Updated upstream
 --- !u!1 &2139749771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,6 +5074,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+--- !u!1 &2139749771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4404565067878974745, guid: 99457d36a15ca9042856e3a77863e572, type: 3}
+  m_PrefabInstance: {fileID: 2139749770}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1001 &6959227662429141719
 PrefabInstance:
   m_ObjectHideFlags: 0

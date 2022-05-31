@@ -1,7 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 using _JabJob.Prefabs.Player.Scripts;
+using _JabJob.Prefabs.Object_Collision_Zone_Highlight.Scripts;
 
 namespace _JabJob.Scripts.Inputs.Interactions
 {
@@ -10,12 +10,20 @@ namespace _JabJob.Scripts.Inputs.Interactions
 	{
 		public bool CanBeGrabbed = true;
 		public bool Throwable = true;
+		public float ObjectCollisionStepDistance = 0.2f;
 		
-		private bool _isGrabbed = false;
+		private bool _isGrabbed;
+		
 		private Rigidbody _rigidbody;
 		private Transform _transform;
-		private float _releaseStartTime;
-		private float _releaseEndTime;
+		
+		private float _releaseStartTime = -1f;
+		private Vector3 _releaseForce;
+		private float _releaseAngle;
+		private Vector3 _releaseHitPosition;
+		private Quaternion _releaseHitRotation;
+
+		private readonly Quaternion _releaseComplementaryHitRotation = Quaternion.Euler(90f, 0f, 0f);
 		
 		public override bool Interact(bool isPressed)
 		{
@@ -28,9 +36,6 @@ namespace _JabJob.Scripts.Inputs.Interactions
 					_releaseStartTime = Time.time;
 				return _isGrabbed;
 			}
-			
-			if (_isGrabbed)
-				_releaseEndTime = Time.time;
 
 			if (ReferenceEquals(MovementController.Instance, null))
 				return false;
@@ -46,13 +51,13 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			}
 			else
 			{
-				float releaseTime = _releaseEndTime - _releaseStartTime;
-				releaseTime = Math.Min(releaseTime, MovementController.Instance.throwDuration);
-				float releaseRatio = releaseTime / MovementController.Instance.throwDuration;
+				UpdateReleaseForce();
+
+				_rigidbody.velocity = _releaseForce;
 				
-				_rigidbody.velocity = Throwable
-					? MovementController.Instance.GetViewRay().direction * releaseRatio * MovementController.Instance.throwForce
-					: Vector3.zero;
+				_releaseStartTime = -1f;
+				
+				UpdateCollisionZoneHighlight();
 			}
 			
 			_rigidbody.useGravity = !_isGrabbed;
@@ -80,6 +85,94 @@ namespace _JabJob.Scripts.Inputs.Interactions
 				return;
 
 			_rigidbody.MovePosition(MovementController.Instance.grabPoint.position);
+		}
+
+		private void FixedUpdate()
+		{
+			if (!_isGrabbed) return;
+			
+			if (ReferenceEquals(MovementController.Instance, null))
+				return;
+			
+			if (ReferenceEquals(MovementController.Instance.grabPoint, null))
+				return;
+			
+			if (_releaseStartTime != -1f)
+				UpdateReleaseForce();
+		}
+
+		private void UpdateReleaseForce()
+		{
+			if (!Throwable)
+			{
+				_releaseForce = Vector3.zero;
+				return;
+			}
+
+			float releaseTime = Time.time - _releaseStartTime;
+			
+			Ray viewRay = MovementController.Instance.GetViewRay();
+			
+			Vector3 viewRayOrigin = viewRay.origin;
+			Vector3 viewRayDirection = viewRay.direction;
+			Vector3 viewDirectionEulerAngles = Quaternion.LookRotation(viewRayDirection).eulerAngles;
+			float viewDirectionEulerAnglesXFromBottom = (viewDirectionEulerAngles.x > 180f
+				? 450f
+				: 90f
+			) - viewDirectionEulerAngles.x;
+
+			_releaseAngle = Mathf.Min(
+				releaseTime * 1f / MovementController.Instance.throw1DegDuration,
+				viewDirectionEulerAnglesXFromBottom
+			);
+
+			if (_releaseAngle <= 10f)
+			{
+				_releaseAngle = 0f;
+			}
+
+			Ray ray = new Ray(
+				viewRayOrigin,
+				Quaternion.Euler(new Vector3(
+					90f - _releaseAngle,
+					viewDirectionEulerAngles.y,
+					viewDirectionEulerAngles.z
+				)) * Vector3.forward
+			);
+
+			if (Physics.Raycast(ray, out RaycastHit hit, MovementController.Instance.throwMaxDistance))
+			{
+				_releaseHitRotation = Quaternion.LookRotation(hit.normal) * _releaseComplementaryHitRotation;
+				_releaseHitPosition = hit.point;
+			}
+			else
+			{
+				_releaseHitRotation = Quaternion.identity;
+				_releaseHitPosition = ray.origin
+				                      + ray.direction.normalized
+				                      * MovementController.Instance.throwMaxDistance;
+			}
+			
+			float distance = Vector3.Distance(_transform.position, _releaseHitPosition);
+
+			Debug.DrawRay(_transform.position, _releaseHitPosition - _transform.position, Color.red);
+			_releaseForce = ((_releaseHitPosition + Vector3.up * 0.5f) - _transform.position).normalized * 3.3f * distance;
+			_releaseForce *= 0.8f + _releaseForce.y / Mathf.Sqrt(Mathf.Pow(_releaseForce.x, 2f) + Mathf.Pow(_releaseForce.z, 2f)) / 2f;
+
+			UpdateCollisionZoneHighlight();
+		}
+
+		private void UpdateCollisionZoneHighlight()
+		{
+			if (_releaseAngle < 10f || _releaseStartTime == -1f)
+			{
+				ObjectCollisionZoneHighlight.Disable();
+			}
+			else
+			{
+				ObjectCollisionZoneHighlight.Enable();
+				ObjectCollisionZoneHighlight.SetPositionAndRotation(_releaseHitPosition, _releaseHitRotation);
+			}
 		}
 	}
 }
