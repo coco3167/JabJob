@@ -62,17 +62,24 @@ namespace _JabJob.Prefabs.Player.Scripts
 			) * movingSpeed * Time.deltaTime;
 			
 			_characterController.Move(movement);
-			_characterController.Move(new Vector3(0, _verticalVelocity, 0));
+			_characterController.Move(Vector3.up * (_verticalVelocity * Time.deltaTime));
 		}
 
 		private void VerticalTranslation()
 		{
-			_verticalVelocity += Physics.gravity.y * 0.005f * Time.deltaTime;
+			bool raycastHit = Physics.Raycast(playerTransform.position, Vector3.down, 0.3f);
 			
-			if (Physics.Raycast(playerTransform.position, Vector3.down, 0.2f))
+			if (raycastHit && InputController.Instance.IsJumping)
 			{
-				_verticalVelocity = InputController.Instance.IsJumping ? 30f : 0f;
+				_verticalVelocity = 4f;
 			}
+			
+			if (_characterController.isGrounded)
+				_verticalVelocity = 0f;
+
+			_verticalVelocity += Physics.gravity.y * Time.deltaTime;
+			
+			Debug.Log(_verticalVelocity);
 		}
 
 		private void Rotate()

@@ -45,7 +45,16 @@
                     "name": "CharacterInteract",
                     "type": "Value",
                     "id": "037af7db-94d7-480b-ac04-4178b3327a26",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CharacterJumping",
+                    "type": "Value",
+                    "id": "1bfaeb54-b5f8-4d7e-a135-c49b8245d128",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -198,7 +207,7 @@
                 {
                     "name": "",
                     "id": "6d45484a-b0a8-4cb7-ab44-be729a495529",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -271,6 +280,28 @@
                     "action": "CaptureCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ca7bfeb6-7838-49e1-8a2f-48903f09f097",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "CharacterJumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f260346-6122-42e1-abb1-544711904237",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CharacterJumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
