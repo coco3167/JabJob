@@ -78,8 +78,6 @@ namespace _JabJob.Prefabs.Player.Scripts
 				_verticalVelocity = 0f;
 
 			_verticalVelocity += Physics.gravity.y * Time.deltaTime;
-			
-			Debug.Log(_verticalVelocity);
 		}
 
 		private void Rotate()

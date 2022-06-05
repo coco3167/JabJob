@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b9d21fad4f4112440a38cc0c20cefed1
+guid: b651ea64f6f5165449e7d9a8c50e3eff
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 3f69d70d5362b79408139fe685a5507e, type: 2}
+      name: books
+    second: {fileID: 2100000, guid: c5facd3762de42045bb7223a104a62ee, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 197af2fecc736354a879b1c199acf9e1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: e721d30044a7f9047b8c4af97770ff29, type: 2}
+      name: bookshelf
+    second: {fileID: 2100000, guid: f72fa4bc64a2cd94a8c7cf53b030687b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
