@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f912cac9266613546848d82b642f3712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
   button: {fileID: 8808769387788101605}
   buttonRenderer: {fileID: 7670797618983607434}
   pressDisplacement: -0.035

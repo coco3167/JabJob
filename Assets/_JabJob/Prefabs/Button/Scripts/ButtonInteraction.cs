@@ -1,5 +1,7 @@
 using Acron0;
+
 using UnityEngine;
+using UnityEngine.Events;
 
 using _JabJob.Scripts.Inputs;
 
@@ -16,6 +18,8 @@ namespace _JabJob.Prefabs.Button.Scripts
 
 	public class ButtonInteraction : Interaction
 	{
+		public UnityEvent OnButtonPressed;
+		
 		[Header("Animation Elements")]
 		public Transform button;
 		public MeshRenderer buttonRenderer;
@@ -83,6 +87,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 						_state = ButtonState.WaitForFullPressComplete;
 						buttonRenderer.material = completedMaterial;
 						_easingCompletedPressTime = 0f;
+						OnButtonPressed?.Invoke();
 					}
 					goto default;
 				case ButtonState.WaitForFullPressComplete:
