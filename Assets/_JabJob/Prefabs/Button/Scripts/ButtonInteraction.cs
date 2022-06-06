@@ -18,6 +18,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 	{
 		[Header("Animation Elements")]
 		public Transform button;
+		public MeshRenderer buttonRenderer;
 
 		[Header("Animation Properties")]
 		public float pressDisplacement;
@@ -25,6 +26,9 @@ namespace _JabJob.Prefabs.Button.Scripts
 		public float pressSpeed;
 		public float completedPressDuration;
 		public Easings.Functions easingFunction;
+		public Material idleMaterial;
+		public Material completedMaterial;
+		public Material cancelledMaterial;
 		
 		private float _easingTime = 0f;
 		private float _easingCompletedPressTime = 0f;
@@ -37,6 +41,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 			if (isPressed)
 			{
 				_state = ButtonState.WaitForEndPress;
+				
 				LogButtonInteractionState("Initiated");
 				return true;
 			}
@@ -50,9 +55,15 @@ namespace _JabJob.Prefabs.Button.Scripts
 			}
 
 			_state = ButtonState.Withdrawal;
+			buttonRenderer.material = cancelledMaterial;
 			
 			LogButtonInteractionState("Cancelled");
 			return false;
+		}
+
+		private void Start()
+		{
+			buttonRenderer.material = idleMaterial;
 		}
 
 		private void Update()
@@ -70,6 +81,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 					if (_easingTime >= 1f)
 					{
 						_state = ButtonState.WaitForFullPressComplete;
+						buttonRenderer.material = completedMaterial;
 						_easingCompletedPressTime = 0f;
 					}
 					goto default;
@@ -79,6 +91,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 					if (_easingCompletedPressTime >= completedPressDuration)
 					{
 						_state = ButtonState.Withdrawal;
+						buttonRenderer.material = idleMaterial;
 						_easingCompletedPressTime = 0f;
 					}
 					goto default;
@@ -88,6 +101,7 @@ namespace _JabJob.Prefabs.Button.Scripts
 					if (_easingTime <= 0f)
 					{
 						_state = ButtonState.Idle;
+						buttonRenderer.material = idleMaterial;
 					}
 					goto default;
 				default:

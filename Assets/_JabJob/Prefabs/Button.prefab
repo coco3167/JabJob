@@ -59,11 +59,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 8808769387788101605}
+  buttonRenderer: {fileID: 7670797618983607434}
   pressDisplacement: -0.035
   initiatedPressDisplacementPercentage: 0.5
-  pressSpeed: 1.8
-  completedPressDuration: 0.2
+  pressSpeed: 2.5
+  completedPressDuration: 0.5
   easingFunction: 6
+  idleMaterial: {fileID: 2100000, guid: e4862d7f44a562f479ab7775884e0e07, type: 2}
+  completedMaterial: {fileID: 2100000, guid: 7a3c759ea7d2ad2409efab73f09f0fbd, type: 2}
+  cancelledMaterial: {fileID: 2100000, guid: 9d3734bbc28f0594b8e8d929bff5341e, type: 2}
 --- !u!1001 &9058340199767769102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,6 +119,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9f7741b40d78f36418927b6b2aa27ae7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4862d7f44a562f479ab7775884e0e07, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f7741b40d78f36418927b6b2aa27ae7, type: 3}
       propertyPath: m_Name
       value: Button
@@ -124,5 +132,10 @@ PrefabInstance:
 --- !u!4 &8808769387788101605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f7741b40d78f36418927b6b2aa27ae7, type: 3}
+  m_PrefabInstance: {fileID: 9058340199767769102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7670797618983607434 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 9f7741b40d78f36418927b6b2aa27ae7, type: 3}
   m_PrefabInstance: {fileID: 9058340199767769102}
   m_PrefabAsset: {fileID: 0}
