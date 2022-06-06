@@ -9,7 +9,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		
 		private bool _canInteract = true;
 		
-		public override bool Interact(bool isPressed)
+		public override bool Interact(bool isPressed, bool isInSight)
 		{
 			if (!_canInteract)
 				return false;

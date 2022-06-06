@@ -4,7 +4,7 @@ namespace _JabJob.Scripts.Inputs
 {
 	public abstract class Interaction : MonoBehaviour
 	{
-		public virtual bool Interact(bool isPressed)
+		public virtual bool Interact(bool isPressed, bool isInSight)
 		{
 			return false;
 		}

@@ -9,10 +9,10 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 	{
 		public static InteractionController Instance { get; private set; }
 
-		
+		[Header("Interaction Properties")]
 		public float interactionDistance = 2f;
 		
-		private Interaction _currentInteraction;
+		private Interaction _lastInteraction;
 		private void Start()
 		{
 			Instance = this;
@@ -20,29 +20,36 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 		
 		public void Interact(bool isPressed)
 		{
-			Interaction interaction;
+			if (ReferenceEquals(MovementController.Instance, null))
+				return;
+				
+			Ray viewRay = MovementController.Instance.GetViewRay();
 			
-			if (ReferenceEquals(_currentInteraction, null))
-			{
-				if (ReferenceEquals(MovementController.Instance, null))
-					return;
-				
-				if (!Physics.Raycast(MovementController.Instance.GetViewRay(), out RaycastHit raycastHit, interactionDistance))
-					return;
-				
-				interaction = raycastHit.collider.transform.GetComponent<Interaction>();
-
-				if (ReferenceEquals(interaction, null))
-					return;
+			if (!Physics.Raycast(viewRay, out RaycastHit raycastHit, interactionDistance))
+				return;
+			
+			bool hasLastInteraction = !ReferenceEquals(_lastInteraction, null);
+			Interaction currentInteraction = raycastHit.collider.GetComponent<Interaction>();
+			
+			Interaction interaction;
+			bool isInSight;
+			
+			if (hasLastInteraction) {
+				interaction = _lastInteraction;
+				isInSight = ReferenceEquals(interaction, currentInteraction);
+			} else {
+				interaction = currentInteraction;
+				isInSight = true;
 			}
-			else
-			{
-				interaction = _currentInteraction;
-			}
+			
+			if (ReferenceEquals(interaction, null))
+				return;
 
-			bool g = interaction.Interact(isPressed);
+			bool keepInteraction = interaction.Interact(isPressed, isInSight);
 
-			_currentInteraction = g ? interaction : null;
+			_lastInteraction = keepInteraction
+				? interaction
+				: null;
 		}
 	}
 }

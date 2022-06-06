@@ -25,7 +25,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 
 		private readonly Quaternion _releaseComplementaryHitRotation = Quaternion.Euler(90f, 0f, 0f);
 		
-		public override bool Interact(bool isPressed)
+		public override bool Interact(bool isPressed, bool isInSight)
 		{
 			if (!CanBeGrabbed)
 				return false;
