@@ -126,6 +126,7 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 						{
 							_state = PasswordPadState.Complete;
 							passwordText.text = "OK";
+							onPasswordComplete.Invoke();
 						}
 						else
 						{
