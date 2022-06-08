@@ -29,7 +29,7 @@ namespace _JabJob.Prefabs.Player.Scripts
 		
 		private CharacterController _characterController;
 		private float _cameraRotationX = 90f;
-		private float _verticalVelocity = 0f;
+		private float _verticalVelocity;
 
 		private void Start()
 		{
@@ -59,7 +59,7 @@ namespace _JabJob.Prefabs.Player.Scripts
 				InputController.Instance.MoveInputValue.x,
 				0,
 				InputController.Instance.MoveInputValue.y
-			) * movingSpeed * Time.deltaTime;
+			) * (movingSpeed * Time.deltaTime);
 			
 			_characterController.Move(movement);
 			_characterController.Move(Vector3.up * (_verticalVelocity * Time.deltaTime));
@@ -67,17 +67,20 @@ namespace _JabJob.Prefabs.Player.Scripts
 
 		private void VerticalTranslation()
 		{
-			bool raycastHit = Physics.Raycast(playerTransform.position, Vector3.down, 0.3f);
-			
+			bool raycastHit = Physics.Raycast(playerTransform.position + Vector3.up * 0.1f, Vector3.down, 0.4f);
+
 			if (raycastHit && InputController.Instance.IsJumping)
 			{
-				_verticalVelocity = 4f;
+				// Print Jumping in the console in red and bold
+				Debug.Log("<color=red><b>Jumping</b></color>");
+				_verticalVelocity = 200f;
 			}
 			
 			if (_characterController.isGrounded)
 				_verticalVelocity = 0f;
 
 			_verticalVelocity += Physics.gravity.y * Time.deltaTime;
+			Debug.Log(_verticalVelocity);
 		}
 
 		private void Rotate()
