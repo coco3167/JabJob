@@ -36,6 +36,12 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 		[Header("Logic Properties")]
 		public string password;
 		public UnityEvent onPasswordComplete;
+		
+		[Header("Sound Properties")]
+		public AudioClip incorrectLetterSound;
+		public AudioClip correctLetterSound;
+		public AudioClip waitForTimerTickSound;
+		public AudioSource audioSource;
 
 		private float _easingTime = 0f;
 		private float[,] _timerMeshCoordinates;
@@ -98,7 +104,11 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 					if (_easingTime >= characterResultAnimDuration)
 					{
 						_easingTime = 0f;
+						audioSource.PlayOneShot(incorrectLetterSound);
 						_state = PasswordPadState.WaitForTimerEndAnim;
+						audioSource.clip = waitForTimerTickSound;
+						audioSource.loop = true;
+						audioSource.Play();
 						_passwordBuffer = _passwordBuffer.Substring(0, _passwordBuffer.Length - 1);
 						passwordText.text = _passwordBuffer;
 						
@@ -121,6 +131,7 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 					if (_easingTime >= characterResultAnimDuration)
 					{
 						_easingTime = 0f;
+						audioSource.PlayOneShot(correctLetterSound);
 						
 						if (_passwordBuffer.Length >= password.Length)
 						{
@@ -145,6 +156,8 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 					{
 						_easingTime = 0f;
 						_state = PasswordPadState.Idle;
+						audioSource.clip = null;
+						audioSource.loop = false;
 						
 						GenerateTimerMesh(0f);
 					}

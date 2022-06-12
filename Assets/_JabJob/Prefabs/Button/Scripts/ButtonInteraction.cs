@@ -34,6 +34,11 @@ namespace _JabJob.Prefabs.Button.Scripts
 		public Material completedMaterial;
 		public Material cancelledMaterial;
 		
+		[Header("Sound Properties")]
+		public AudioClip completedSound;
+		public AudioClip cancelSound;
+		public AudioSource audioSource;
+		
 		private float _easingTime = 0f;
 		private float _easingCompletedPressTime = 0f;
 		private ButtonState _state = ButtonState.Idle;
@@ -53,12 +58,14 @@ namespace _JabJob.Prefabs.Button.Scripts
 			if (isInSight)
 			{
 				_state = ButtonState.WaitForFullPress;
+				audioSource.PlayOneShot(completedSound);
 				
 				LogButtonInteractionState("Completed");
 				return false;
 			}
 
 			_state = ButtonState.Withdrawal;
+			audioSource.PlayOneShot(cancelSound);
 			buttonRenderer.material = cancelledMaterial;
 			
 			LogButtonInteractionState("Cancelled");
