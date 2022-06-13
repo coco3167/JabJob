@@ -84,7 +84,8 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
         }
         public void OnCharacterJumping(InputValue inputValue)
         {
-            IsJumping = inputValue.Get<float>() > 0.5f;
+            // TODO: Uncomment this when jump has been repaired
+            //IsJumping = inputValue.Get<float>() > 0.5f;
         }
         
         public void OnCharacterInteract(InputValue inputValue)
