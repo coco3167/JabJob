@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 12c3eef0baea13f458f78a2b7782534d
+guid: f19e18c04af670943bbb8a26c642f626
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Light_Fixture
+    second: {fileID: 2100000, guid: f9c047ec836d9f7468ebb4d8f99bce1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Pegboard
+    second: {fileID: 2100000, guid: 310703526d8d0904297a09be985f34a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Tool_Cabinet
+    second: {fileID: 2100000, guid: dcc39149af4b0cf468be9ed8c3a0ec03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Tools
+    second: {fileID: 2100000, guid: 2beec034e24ed0e438c943057f2a0bc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Vice
+    second: {fileID: 2100000, guid: 7f93a588a5a41da43a50d8dfbd4946fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Workbench
+    second: {fileID: 2100000, guid: 6e1ce7cf2d55d7c47b7998157239e91b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
