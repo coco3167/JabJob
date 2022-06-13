@@ -41,6 +41,7 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 		public AudioClip incorrectLetterSound;
 		public AudioClip correctLetterSound;
 		public AudioClip waitForTimerTickSound;
+		public AudioClip timerEndSound;
 		public AudioSource audioSource;
 
 		private float _easingTime = 0f;
@@ -158,6 +159,8 @@ namespace _JabJob.Prefabs.Password_Pad.Scripts
 						_state = PasswordPadState.Idle;
 						audioSource.clip = null;
 						audioSource.loop = false;
+						
+						audioSource.PlayOneShot(timerEndSound);
 						
 						GenerateTimerMesh(0f);
 					}
