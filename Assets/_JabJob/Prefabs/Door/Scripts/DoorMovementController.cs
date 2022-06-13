@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 using Acron0;
@@ -30,6 +29,9 @@ namespace _JabJob.Prefabs.Door.Scripts
 
         private void Update()
         {
+            if (IsOpen && _openingTime >= openingDuration || !IsOpen && _openingTime <= 0f)
+                return;
+            
             _openingTime += Time.deltaTime * (IsOpen ? 1 : -1);
             _openingTime = Mathf.Clamp(_openingTime, 0, openingDuration);
 
