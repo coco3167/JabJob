@@ -1,12 +1,17 @@
 fileFormatVersion: 2
 guid: a326795409146f3459d38db94b77bd1e
 ModelImporter:
-  serializedVersion: 21100
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 3374748389425109202
     second: rig|rigAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Arraign\xE9e Low Poly"
+    second: {fileID: 2100000, guid: 0d4bc7c36ffc0f74a987059567a9434c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
