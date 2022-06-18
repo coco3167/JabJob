@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PathCreation {
     /// Stores state data for the path creator editor
@@ -54,6 +53,22 @@ namespace PathCreation {
 
         public void ResetBezierPath (Vector3 centre, bool defaultIs2D = false) {
             CreateBezier (centre, defaultIs2D);
+        }
+        
+        public void ReverseBezierPath ()
+        {
+            Vector3[] pointsPosition = new Vector3[_bezierPath.NumPoints];
+
+            for (int i = 0; i < _bezierPath.NumPoints; i++)
+            {
+                pointsPosition[i] = _bezierPath.GetPoint(i);
+            }
+            
+            for (int i = 0; i < _bezierPath.NumPoints; i++)
+            {
+                int k = _bezierPath.NumPoints - i - 1;
+                _bezierPath.SetPoint(i, pointsPosition[k]);
+            }
         }
 
         void CreateBezier (Vector3 centre, bool defaultIs2D = false) {

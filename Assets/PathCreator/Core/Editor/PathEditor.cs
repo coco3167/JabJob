@@ -178,6 +178,13 @@ namespace PathCreationEditor {
                         EditorApplication.QueuePlayerLoopUpdate ();
                     }
 
+                    if (GUILayout.Button("Reverse Path"))
+                    {
+                        Undo.RecordObject(creator, "Reverse Path");
+                        data.ReverseBezierPath();
+                        EditorApplication.QueuePlayerLoopUpdate ();
+                    }
+
                     GUILayout.Space (inspectorSectionSpacing);
                 }
 
