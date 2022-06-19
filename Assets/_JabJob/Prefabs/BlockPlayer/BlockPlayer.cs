@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class BlockPlayer : MonoBehaviour
+namespace _JabJob.Prefabs.BlockPlayer
 {
-    public void StopBlockingPlayer()
-    {
-       gameObject.SetActive(false);
-    }
+	public class BlockPlayer : MonoBehaviour
+	{
+		public void StopBlockingPlayer()
+		{
+			gameObject.SetActive(false);
+		}
+	}
 }

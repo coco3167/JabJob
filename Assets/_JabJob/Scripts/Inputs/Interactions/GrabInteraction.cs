@@ -12,6 +12,8 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		public bool Throwable = true;
 		public bool AlignWhenGrabbed = true;
 
+		public LayerMask layerMask;
+
 		private bool _isGrabbed;
 		
 		private Rigidbody _rigidbody;
@@ -143,7 +145,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 				)) * Vector3.forward
 			);
 
-			if (Physics.Raycast(ray, out RaycastHit hit, MovementController.Instance.throwMaxDistance))
+			if (Physics.Raycast(ray, out RaycastHit hit, MovementController.Instance.throwMaxDistance, layerMask))
 			{
 				_releaseHitRotation = Quaternion.LookRotation(hit.normal) * _releaseComplementaryHitRotation;
 				_releaseHitPosition = hit.point;

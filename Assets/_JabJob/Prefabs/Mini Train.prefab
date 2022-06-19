@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 491401630272905402}
   - component: {fileID: 4894314710048550779}
   - component: {fileID: 5696867518870146154}
+  - component: {fileID: 4605919703240315242}
   m_Layer: 0
   m_Name: Mini Train
   m_TagString: Toy
@@ -78,6 +79,21 @@ MonoBehaviour:
   CanBeGrabbed: 1
   Throwable: 1
   AlignWhenGrabbed: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1943
+--- !u!114 &4605919703240315242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000561748684222786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e2806d3f4214d4bb77d8af554e2c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4771505401442996754
 PrefabInstance:
   m_ObjectHideFlags: 0

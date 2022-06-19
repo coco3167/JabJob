@@ -11,6 +11,7 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 
 		[Header("Interaction Properties")]
 		public float interactionDistance = 2f;
+		public LayerMask layerMask;
 		
 		private Interaction _lastInteraction;
 		private void Start()
@@ -25,7 +26,7 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 				
 			Ray viewRay = MovementController.Instance.GetViewRay();
 			
-			if (!Physics.Raycast(viewRay, out RaycastHit raycastHit, interactionDistance))
+			if (!Physics.Raycast(viewRay, out RaycastHit raycastHit, interactionDistance, layerMask))
 				return;
 			
 			bool hasLastInteraction = !ReferenceEquals(_lastInteraction, null);
