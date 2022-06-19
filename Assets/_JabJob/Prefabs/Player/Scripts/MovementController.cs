@@ -30,6 +30,8 @@ namespace _JabJob.Prefabs.Player.Scripts
 		private CharacterController _characterController;
 		private float _cameraRotationX = 90f;
 		private float _verticalVelocity;
+		
+		public bool CanMove = true;
 
 		private void Start()
 		{
@@ -43,7 +45,8 @@ namespace _JabJob.Prefabs.Player.Scripts
 		private void Update()
 		{
 			VerticalTranslation();
-			Translate();
+			if (CanMove)
+				Translate();
 			Rotate();
 		}
 
