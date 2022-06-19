@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_JabJob/Scenes/Rebuild House.unity
     guid: 1e5d103c0dc3ad44abaf28f44de94aea
+  - enabled: 1
+    path: Assets/_JabJob/Scenes/EndScene.unity
+    guid: d4d59823c54b38a4b83f5a08877fffd1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bd60f99f133b00e458dfdac67f8e2401, type: 2}

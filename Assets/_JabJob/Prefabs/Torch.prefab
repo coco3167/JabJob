@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5193842056491657954}
   - component: {fileID: 7533378911650876579}
   - component: {fileID: 792010724923039305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4814,7 +4814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6213665263711201933}
   - component: {fileID: 2394426961392634030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4909,7 +4909,7 @@ GameObject:
   - component: {fileID: 3710253970735651314}
   - component: {fileID: 6399462451438734358}
   - component: {fileID: 538955434958168472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Torch
   m_TagString: Torch
   m_Icon: {fileID: 0}
@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanBeGrabbed: 1
   Throwable: 1
-  ObjectCollisionStepDistance: 0.2
+  AlignWhenGrabbed: 1
 --- !u!136 &538955434958168472
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5032,6 +5032,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ceea2772e860394eb575ec09f957f7f, type: 3}
       propertyPath: m_Name
       value: Torche (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ceea2772e860394eb575ec09f957f7f, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ceea2772e860394eb575ec09f957f7f, type: 3}
