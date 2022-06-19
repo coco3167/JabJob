@@ -556,7 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpen: 0
   StaticLightCutoutsPlanes:
-  - {fileID: 0}
+  - {fileID: 3028708161952481810}
   - {fileID: 0}
   openingDuration: 2
   openingSide: 0
