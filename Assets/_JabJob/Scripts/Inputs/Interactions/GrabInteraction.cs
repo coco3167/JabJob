@@ -10,8 +10,8 @@ namespace _JabJob.Scripts.Inputs.Interactions
 	{
 		public bool CanBeGrabbed = true;
 		public bool Throwable = true;
-		public float ObjectCollisionStepDistance = 0.2f;
-		
+		public bool AlignWhenGrabbed = true;
+
 		private bool _isGrabbed;
 		
 		private Rigidbody _rigidbody;
@@ -96,6 +96,9 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			
 			if (ReferenceEquals(MovementController.Instance.grabPoint, null))
 				return;
+			
+			if (AlignWhenGrabbed)
+				_rigidbody.MoveRotation(Quaternion.identity);
 			
 			if (_releaseStartTime != -1f)
 				UpdateReleaseForce();

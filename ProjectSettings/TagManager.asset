@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Torch
+  - Toy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Editor Only
   - Door
   - Player
-  - 
+  - Torch Holder
   - 
   - 
   - 

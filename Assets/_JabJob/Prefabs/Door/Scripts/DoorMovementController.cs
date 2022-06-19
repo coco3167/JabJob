@@ -13,6 +13,7 @@ namespace _JabJob.Prefabs.Door.Scripts
     public class DoorMovementController : MonoBehaviour
     {
         public bool IsOpen = false;
+        public GameObject[] StaticLightCutoutsPlanes;
     
         [Header("Properties")]
         public float openingDuration = 2f;
@@ -25,6 +26,10 @@ namespace _JabJob.Prefabs.Door.Scripts
         private void Start()
         {
             _transform = transform;
+            foreach (var staticLightCutoutsPlane in StaticLightCutoutsPlanes)
+            {
+                Destroy(staticLightCutoutsPlane);
+            }
         }
 
         private void Update()
