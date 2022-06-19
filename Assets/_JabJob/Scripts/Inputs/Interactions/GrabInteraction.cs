@@ -18,6 +18,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		
 		private Rigidbody _rigidbody;
 		private Transform _transform;
+		private Transform _parent;
 		
 		private float _releaseStartTime = -1f;
 		private Vector3 _releaseForce;
@@ -65,7 +66,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			_rigidbody.useGravity = !_isGrabbed;
 			_rigidbody.constraints = _isGrabbed ? RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.None;
 
-			_transform.parent = _isGrabbed ? MovementController.Instance.playerTransform : null;
+			_transform.parent = _isGrabbed ? MovementController.Instance.playerTransform : _parent;
 
 			return _isGrabbed;
 		}
@@ -74,6 +75,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		{
 			_rigidbody = GetComponent<Rigidbody>();
 			_transform = transform;
+			_parent = transform.parent;
 		}
 		
 		private void Update()
