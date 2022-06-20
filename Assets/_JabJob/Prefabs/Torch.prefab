@@ -4964,9 +4964,10 @@ MonoBehaviour:
   CanBeGrabbed: 1
   Throwable: 1
   AlignWhenGrabbed: 1
+  objectSprite: {fileID: 21300000, guid: eb99a58b45e40804aa868db9f41403a5, type: 3}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 6039
 --- !u!136 &538955434958168472
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5034,7 +5035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1ceea2772e860394eb575ec09f957f7f, type: 3}
       propertyPath: m_Name
-      value: Torche (1)
+      value: Torche
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1ceea2772e860394eb575ec09f957f7f, type: 3}
       propertyPath: m_Layer

@@ -79,9 +79,10 @@ MonoBehaviour:
   CanBeGrabbed: 1
   Throwable: 1
   AlignWhenGrabbed: 1
+  objectSprite: {fileID: 21300000, guid: 651ddd51b0c018f4ba2ae048566d131f, type: 3}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1943
+    m_Bits: 6039
 --- !u!114 &4605919703240315242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e2806d3f4214d4bb77d8af554e2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &4771505401442996754
 PrefabInstance:
   m_ObjectHideFlags: 0
