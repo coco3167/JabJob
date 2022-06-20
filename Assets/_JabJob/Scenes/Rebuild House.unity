@@ -1616,7 +1616,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh165692
+  m_Name: pb_Mesh23820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6975,7 +6975,7 @@ GameObject:
   - component: {fileID: 554353003}
   - component: {fileID: 554353002}
   - component: {fileID: 554353001}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15975,10 +15975,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3710253970735651314, guid: d68f046a06bdd5240ad9d2bb7d3aaa49, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6399462451438734358, guid: d68f046a06bdd5240ad9d2bb7d3aaa49, type: 3}
       propertyPath: layerMask.m_Bits
       value: 915
@@ -18284,7 +18280,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh165562
+  m_Name: pb_Mesh23690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
