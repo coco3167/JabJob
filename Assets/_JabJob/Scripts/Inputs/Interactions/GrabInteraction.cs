@@ -11,6 +11,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		public bool CanBeGrabbed = true;
 		public bool Throwable = true;
 		public bool AlignWhenGrabbed = true;
+		public bool StopPlayer = false;
 
 		public LayerMask layerMask;
 
@@ -59,6 +60,9 @@ namespace _JabJob.Scripts.Inputs.Interactions
 				_rigidbody.velocity = _releaseForce;
 				_rigidbody.constraints = RigidbodyConstraints.None;
 				_transform.SetParent(null, true);
+
+				if (StopPlayer)
+					MovementController.Instance.CanMove = true;
 				
 				_releaseStartTime = -1f;
 				return false;
@@ -73,6 +77,8 @@ namespace _JabJob.Scripts.Inputs.Interactions
 				return false;
 				
 			// Object Grabbed
+			if (StopPlayer)
+				MovementController.Instance.CanMove = false;
 			_isGrabbed = true;
 			_rigidbody.useGravity = false;
 			_rigidbody.velocity = Vector3.zero;
