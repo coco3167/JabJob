@@ -26,30 +26,36 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
 				
 			Ray viewRay = MovementController.Instance.GetViewRay();
 			
-			if (!Physics.Raycast(viewRay, out RaycastHit raycastHit, interactionDistance, layerMask))
-				return;
-			
 			bool hasLastInteraction = !ReferenceEquals(_lastInteraction, null);
-			Interaction currentInteraction = raycastHit.collider.GetComponent<Interaction>();
-			
-			Interaction interaction;
-			bool isInSight;
-			
-			if (hasLastInteraction) {
-				interaction = _lastInteraction;
-				isInSight = ReferenceEquals(interaction, currentInteraction);
-			} else {
-				interaction = currentInteraction;
-				isInSight = true;
+
+			if (Physics.Raycast(viewRay, out RaycastHit raycastHit, interactionDistance, layerMask))
+			{
+				Interaction currentInteraction = raycastHit.collider.GetComponent<Interaction>();
+				
+				if (hasLastInteraction)
+				{
+					bool isInSight = ReferenceEquals(_lastInteraction, currentInteraction);
+					
+					_lastInteraction = _lastInteraction.Interact(isPressed, isInSight)
+						? _lastInteraction
+						: null;
+					return;
+				}
+				
+				if (ReferenceEquals(null, currentInteraction))
+					return;
+				
+				_lastInteraction = currentInteraction.Interact(isPressed, true)
+					? currentInteraction
+					: null;
+				return;
 			}
 			
-			if (ReferenceEquals(interaction, null))
+			if (!hasLastInteraction)
 				return;
-
-			bool keepInteraction = interaction.Interact(isPressed, isInSight);
-
-			_lastInteraction = keepInteraction
-				? interaction
+			
+			_lastInteraction = _lastInteraction.Interact(isPressed, false)
+				? _lastInteraction
 				: null;
 		}
 	}

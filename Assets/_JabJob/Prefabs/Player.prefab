@@ -160,9 +160,10 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 6
   gamepadRotationSpeed: 150
-  mouseRotationSpeed: 35
-  throwMaxDistance: 5
+  mouseRotationSpeed: 17.5
+  throwMaxDistance: 2.5
   throw1DegDuration: 0.016
+  CanMove: 1
 --- !u!82 &7651454523731442370
 AudioSource:
   m_ObjectHideFlags: 0

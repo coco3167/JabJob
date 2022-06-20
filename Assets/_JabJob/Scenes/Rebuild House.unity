@@ -236,7 +236,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.2688679, b: 0.9989966, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.86
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15305,10 +15305,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4057133010663058230, guid: 84630ce7c0fc2b440bd385f0189a50bf, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 4083
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84630ce7c0fc2b440bd385f0189a50bf, type: 3}
 --- !u!1 &741886368
@@ -16883,7 +16879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054536790}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.5, y: -0.25, z: 3}
+  m_LocalPosition: {x: -4.5, y: -0.45, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1698600053}
@@ -17196,6 +17192,10 @@ PrefabInstance:
     - target: {fileID: 36274215, guid: 046b5725416a77e49a4691e26a5ff8fb, type: 3}
       propertyPath: volumeIncrease
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129214550944054462, guid: 046b5725416a77e49a4691e26a5ff8fb, type: 3}
+      propertyPath: throwMaxDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5199056737050488073, guid: 046b5725416a77e49a4691e26a5ff8fb, type: 3}
       propertyPath: m_Name
