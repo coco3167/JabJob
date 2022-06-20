@@ -50,10 +50,12 @@ namespace _JabJob.Scripts.Inputs.Interactions
 
 			if (_isGrabbed)
 			{
+				_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 				_rigidbody.velocity = Vector3.zero;
 			}
 			else
 			{
+				_rigidbody.constraints = RigidbodyConstraints.None;
 				UpdateReleaseForce();
 
 				_rigidbody.velocity = _releaseForce;
@@ -66,7 +68,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			_rigidbody.useGravity = !_isGrabbed;
 			_rigidbody.constraints = _isGrabbed ? RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.None;
 
-			_transform.parent = _isGrabbed ? MovementController.Instance.playerTransform : _parent;
+			_transform.parent = _isGrabbed ? MovementController.Instance.playerTransform : null;
 
 			return _isGrabbed;
 		}
