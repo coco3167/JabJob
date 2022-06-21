@@ -34,6 +34,11 @@ namespace _JabJob.Prefabs.Input_Controller.Scripts
             Instance = this;
             
             _playerInput = GetComponent<PlayerInput>();
+
+            Debug.Log(Keyboard.current.wKey.displayName);
+            Debug.Log(Keyboard.current.aKey.displayName);
+            Debug.Log(Keyboard.current.sKey.displayName);
+            Debug.Log(Keyboard.current.dKey.displayName);
         }
 
         private void Update()

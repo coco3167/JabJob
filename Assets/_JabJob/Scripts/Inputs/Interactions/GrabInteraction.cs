@@ -12,6 +12,7 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		public bool Throwable = true;
 		public bool AlignWhenGrabbed = true;
 		public bool StopPlayer = false;
+		public Sprite objectSprite;
 
 		public LayerMask layerMask;
 
@@ -63,6 +64,8 @@ namespace _JabJob.Scripts.Inputs.Interactions
 
 				if (StopPlayer)
 					MovementController.Instance.CanMove = true;
+				if (!ReferenceEquals(null, PlayerUI.Instance))
+					PlayerUI.Instance.SetImageObjectHolding(null);
 				
 				_releaseStartTime = -1f;
 				return false;
@@ -86,6 +89,9 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			_transform.SetParent(MovementController.Instance.playerTransform, true);
 			if (AlignWhenGrabbed)
 				_transform.rotation = Quaternion.identity;
+			
+			if (!ReferenceEquals(null, PlayerUI.Instance))
+				PlayerUI.Instance.SetImageObjectHolding(objectSprite);
 
 			return true;
 		}
