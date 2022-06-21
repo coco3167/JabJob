@@ -8,6 +8,8 @@ namespace _JabJob.Scripts.Inputs.Interactions
 	[RequireComponent(typeof(Rigidbody))]
 	public class GrabInteraction : Interaction
 	{
+		public override string Type => "Object";
+		
 		public bool CanBeGrabbed = true;
 		public bool Throwable = true;
 		public bool AlignWhenGrabbed = true;
@@ -30,8 +32,6 @@ namespace _JabJob.Scripts.Inputs.Interactions
 		
 		public override bool Interact(bool isPressed, bool isInSight)
 		{
-			Debug.Log("GG");
-			
 			if (!CanBeGrabbed)
 				return false;
 			
@@ -61,8 +61,11 @@ namespace _JabJob.Scripts.Inputs.Interactions
 				_rigidbody.constraints = RigidbodyConstraints.None;
 				_transform.SetParent(null, true);
 				if (!ReferenceEquals(null, PlayerUI.Instance))
+				{
 					PlayerUI.Instance.SetImageObjectHolding(null);
-				
+					PlayerUI.Instance.SetActionPlayerUIState("throw", false);
+				}
+
 				_releaseStartTime = -1f;
 				return false;
 			}
@@ -83,9 +86,12 @@ namespace _JabJob.Scripts.Inputs.Interactions
 			_transform.SetParent(MovementController.Instance.playerTransform, true);
 			if (AlignWhenGrabbed)
 				_transform.rotation = Quaternion.identity;
-			
+
 			if (!ReferenceEquals(null, PlayerUI.Instance))
+			{
 				PlayerUI.Instance.SetImageObjectHolding(objectSprite);
+				PlayerUI.Instance.SetActionPlayerUIState("throw", true);
+			}
 
 			return true;
 		}

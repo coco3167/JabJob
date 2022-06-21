@@ -30,8 +30,17 @@ namespace _JabJob.Prefabs.Player.Scripts
 		private CharacterController _characterController;
 		private float _cameraRotationX = 90f;
 		private float _verticalVelocity;
-		
-		public bool CanMove = true;
+
+		public bool CanMove
+		{
+			get => _canMove;
+			set
+			{
+				_canMove = value;
+				PlayerUI.Instance.SetActionPlayerUIState("move", value);
+			}
+		}
+		private bool _canMove = true;
 
 		private void Start()
 		{
@@ -40,6 +49,8 @@ namespace _JabJob.Prefabs.Player.Scripts
 			_characterController = GetComponent<CharacterController>();
 			
 			playerTransform ??= transform;
+
+			CanMove = true;
 		}
 		
 		private void Update()

@@ -1,15 +1,12 @@
 using System;
-
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable] public class PlayerUIAction
 {
     public string name;
-    public string message;
-    public Sprite gamepadMainImage;
-    public Sprite gamepadMovementImage;
-    public Sprite keyboardMainImage;
+    public GameObject gameObject;
 }
 
 public class PlayerUI : MonoBehaviour
@@ -37,5 +34,12 @@ public class PlayerUI : MonoBehaviour
             objectHoldingPanel.SetActive(true);
             objectHoldingImage.sprite = image;
         }
+    }
+
+    public void SetActionPlayerUIState(string name, bool state)
+    {
+        PlayerUIAction playerUIAction = UIActions.First(action => action.name == name);
+        
+        playerUIAction.gameObject.SetActive(state);
     }
 }

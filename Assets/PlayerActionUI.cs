@@ -1,3 +1,4 @@
+using _JabJob.Prefabs.Input_Controller.Scripts;
 using _JabJob.Scripts.Inputs;
 using UnityEngine;
 
@@ -9,9 +10,11 @@ public class PlayerActionUI : MonoBehaviour
     private void Start()
     {
         SwitchInputType(InputType.KeyboardAndMouse);
+        
+        InputController.Instance.OnInputTypeChanged.AddListener(SwitchInputType);
     }
 
-    public void SwitchInputType(InputType inputType)
+    private void SwitchInputType(InputType inputType)
     {
         if (ReferenceEquals(gamepadPanel, null) || ReferenceEquals(keyboardPanel, null))
             return;

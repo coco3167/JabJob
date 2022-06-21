@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_JabJob/Scenes/Rebuild House.unity
     guid: 1e5d103c0dc3ad44abaf28f44de94aea
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_JabJob/Scenes/EndScene.unity
     guid: 4bddc126253c406469172b780a8dd6a1
