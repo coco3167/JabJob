@@ -281,7 +281,7 @@ Light:
   m_BounceIntensity: 3.56
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 3.923636e-39}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -604,6 +604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 3657237923515797500, guid: a88fddd31ab51fc4a86be8f41918b5eb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cdcc491468e09a545ac06bebcee6b886, type: 2}
     - target: {fileID: 3849134842837336222, guid: a88fddd31ab51fc4a86be8f41918b5eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -127
@@ -752,6 +756,10 @@ PrefabInstance:
       propertyPath: OnSwitchOn.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7383998820057643810, guid: a88fddd31ab51fc4a86be8f41918b5eb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cdcc491468e09a545ac06bebcee6b886, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88fddd31ab51fc4a86be8f41918b5eb, type: 3}
 --- !u!4 &41077401 stripped
@@ -842,6 +850,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1409821857}
     m_Modifications:
+    - target: {fileID: 593455891912909662, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
+      propertyPath: m_Size.z
+      value: 0.0019351708
+      objectReference: {fileID: 0}
+    - target: {fileID: 593455891912909662, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
+      propertyPath: m_Center.y
+      value: -0.00038580623
+      objectReference: {fileID: 0}
+    - target: {fileID: 593455891912909662, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
+      propertyPath: m_Center.z
+      value: 0.002434603
+      objectReference: {fileID: 0}
     - target: {fileID: 6284326054965039958, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
       propertyPath: m_Name
       value: Bed
@@ -860,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6466972699012888231, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6466972699012888231, guid: d5c3340a594e4a240b10a7bfa37d1641, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1616,7 +1636,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23636
+  m_Name: pb_Mesh82426
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17508,7 +17528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1515710922195926091, guid: 81b6662e669969646ad658ba8bf2224d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4996
+      value: 0.505
       objectReference: {fileID: 0}
     - target: {fileID: 1515710922195926091, guid: 81b6662e669969646ad658ba8bf2224d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17552,7 +17572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605919703240315242, guid: 81b6662e669969646ad658ba8bf2224d, type: 3}
       propertyPath: respawnPosition.y
-      value: 0.4996
+      value: 0.505
       objectReference: {fileID: 0}
     - target: {fileID: 4605919703240315242, guid: 81b6662e669969646ad658ba8bf2224d, type: 3}
       propertyPath: respawnPosition.z
@@ -18272,7 +18292,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23500
+  m_Name: pb_Mesh81866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18788,7 +18808,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 0.000000393362}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -19268,7 +19288,7 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 2
+  m_BakeBackend: 1
   m_LightmapMaxSize: 4096
   m_BakeResolution: 50
   m_Padding: 3
